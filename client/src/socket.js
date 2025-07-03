@@ -1,5 +1,9 @@
 import { io } from "socket.io-client";
-export const socket = io(import.meta.env.VITE_SOCKET_SERVER, {
+
+const SERVER_URL =
+  import.meta.env.VITE_SOCKET_SERVER || "http://localhost:5000";
+
+export const socket = io(SERVER_URL, {
   autoConnect: true,
   reconnection: true,
   reconnectionAttempts: 5,
